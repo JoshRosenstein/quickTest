@@ -3,10 +3,12 @@
   "description": "Test Component For quick unit tests",
   "version": "0.0.24",
   "dependencies": {
-    "react-test-renderer": "16.2.0",
-    "react-dom": "16.0.0",
+    "jest-matchers": "20.0.3",
     "react": "16.0.0",
-    "jest-matchers": "20.0.3"
+    "react-collapsible": "2.2.0",
+    "react-dom": "16.0.0",
+    "react-inspector": "2.3.0",
+    "react-test-renderer": "16.2.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"
