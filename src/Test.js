@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import expect from "jest-matchers";
 import { ObjectInspector } from "react-inspector";
 import Collapsible from "react-collapsible";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
+// <span>{status}</span>
+// { "-".repeat(30 - name.length) } { name } { " " }
+// { "-".repeat(30 - name.length) } { status }
 export default ({ input, output, name }) => {
   let status = "✅";
   let pass = true;
@@ -17,20 +21,23 @@ export default ({ input, output, name }) => {
     <div>
       <div
         style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           width: "100%",
-          textAlign: "center",
-          align: "center",
           marginBottom: "4px"
         }}
       >
-        {status} {"-".repeat(30 - name.length)} {name}{" "}
-        {"-".repeat(30 - name.length)} {status}
+        <span>{status}</span>
+        <span>{name}</span>
+        <span>{status}</span>
       </div>
+
       {!pass && (
         <div>
           <Collapsible
             triggerStyle={{
-              width: "100%",
+              width: "75%",
               textAlign: "center",
               align: "center",
               marginBottom: "4px",
@@ -48,10 +55,20 @@ export default ({ input, output, name }) => {
               }}
             >
               <div>
-                Input<ObjectInspector expandLevel={2} data={input} />
+                <CopyToClipboard text={JSON.stringify(input)}>
+                  <a style={{ cursor: "pointer" }} title="Copy To Clipboard">
+                    Expected
+                  </a>
+                </CopyToClipboard>
+                <ObjectInspector expandLevel={2} data={input} />
               </div>
               <div>
-                Output<ObjectInspector data={output} expandLevel={2} />
+                <CopyToClipboard text={JSON.stringify(output)}>
+                  <span style={{ cursor: "pointer" }} title="Copy To Clipboard">
+                    Recieved
+                  </span>
+                </CopyToClipboard>
+                <ObjectInspector data={output} expandLevel={2} />
               </div>
             </div>
           </Collapsible>

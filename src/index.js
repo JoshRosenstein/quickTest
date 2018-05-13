@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import Collapsible from "react-collapsible";
 
 //importing the test runner
 import Test from "./Test";
@@ -72,7 +71,14 @@ const testData = [
 ];
 
 const TestReturn = ({ title, tests }) => (
-  <div style={{ fontFamily: "sans-serif", textAlign: "center" }}>
+  <div
+    style={{
+      fontFamily: "sans-serif",
+      textAlign: "center",
+      width: "50%",
+      margin: "auto"
+    }}
+  >
     <h4>{title}</h4>
     {tests.map(test => (
       <Test input={test.input} output={test.output} name={test.name} />

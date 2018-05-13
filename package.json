@@ -6,6 +6,7 @@
     "jest-matchers": "20.0.3",
     "react": "16.0.0",
     "react-collapsible": "2.2.0",
+    "react-copy-to-clipboard": "5.0.1",
     "react-dom": "16.0.0",
     "react-inspector": "2.3.0",
     "react-test-renderer": "16.2.0"
